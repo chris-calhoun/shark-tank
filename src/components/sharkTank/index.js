@@ -18,8 +18,8 @@ export default class sharkTank extends Component {
     const { students } = this.state;
     console.warn({ students });
     return (
-      <div className='shark-tank'>
-        <h2>Live Students go here!</h2>
+      <div className='liveStudents'>
+        <h2>SURVIVORS</h2>
       </div>
     );
   }

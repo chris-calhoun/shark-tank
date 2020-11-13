@@ -6,8 +6,14 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        <nav className='navbar navbar-light navbar-center bg-dark'>
+          <form className='form-inline'>
+            <button className='btn btn-danger' type='button'>
+              Shark Attack
+            </button>
+          </form>
+        </nav>
         <div className='sharkTank'>
-          <h1>Shark Attack</h1>
           <SharkTank />
         </div>
         <div className='graveyard'>
