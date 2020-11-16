@@ -1,13 +1,13 @@
 import Axios from 'axios';
 
-const baseUrl = 'https://shark-attack-60f42.firebaseio.com/students.json';
+const baseUrl = 'https://shark-attack-60f42.firebaseio.com';
 
-const getStudents = () => new Promise((resolve, reject) => {
-  Axios.get(`${baseUrl}`)
+const livingStudents = () => new Promise((resolve, reject) => {
+  Axios.get(`${baseUrl}/students.json?orderBy="isDead"&equalTo=false`)
     .then((response) => {
-      resolve(response.data);
+      resolve(Object.values(response.data));
     })
     .catch((error) => reject(error));
 });
 
-export default getStudents;
+export default livingStudents;
