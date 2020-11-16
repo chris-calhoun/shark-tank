@@ -18,7 +18,6 @@ class App extends React.Component {
 
   render() {
     const { livingStudents } = this.state;
-    console.warn(livingStudents);
     return (
       <div className='App'>
         <nav className='navbar navbar-light navbar-center bg-dark'>
@@ -28,9 +27,7 @@ class App extends React.Component {
             </button>
           </form>
         </nav>
-        <div className='sharkTank'>
           <SharkTank livingStudents={livingStudents} />
-        </div>
         <div className='graveyard'>
           <h1>Graveyard</h1>
         </div>
