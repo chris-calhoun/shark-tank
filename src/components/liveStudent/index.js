@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Card, CardText } from 'reactstrap';
+import { Card } from 'reactstrap';
 
 export default class LiveStudent extends Component {
   render() {
     const { student } = this.props;
     return (
       <Card className='liveCards'>
-        <CardText>
-          {student.firstName} {student.lastName}
-        </CardText>
+        <img width='100%' src={student.image} alt='student' />
       </Card>
+
     );
   }
 }

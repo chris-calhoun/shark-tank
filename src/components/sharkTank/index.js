@@ -9,8 +9,9 @@ export default class sharkTank extends Component {
     ));
     return (
       <div className='sharkTank'>
-        <h2>SURVIVORS</h2>
-        {renderStudentToDom()}
+        <div className='liveStudents'>
+          {renderStudentToDom()}
+        </div>
       </div>
     );
   }
