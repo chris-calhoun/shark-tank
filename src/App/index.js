@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { liveStudents, deadStudents } = this.state;
+    const { liveStudents } = this.state;
     return (
       <div className='App'>
         <nav className='navbar navbar-light navbar-center bg-dark'>
