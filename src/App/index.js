@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.scss';
 import SharkTank from '../components/sharkTank';
-import getLiveStudents from '../helpers/data/studentData';
+import { livingStudents } from '../helpers/data/studentData';
 
 class App extends React.Component {
   state = {
-    livingStudents: [],
+    liveStudents: [],
   };
 
   componentDidMount() {
-    getLiveStudents().then((resp) => {
+    livingStudents().then((resp) => {
       this.setState({
-        livingStudents: resp,
+        liveStudents: resp,
       });
     });
   }
 
   render() {
-    const { livingStudents } = this.state;
+    const { liveStudents } = this.state;
     return (
       <div className='App'>
         <nav className='navbar navbar-light navbar-center bg-dark'>
@@ -27,7 +27,7 @@ class App extends React.Component {
             </button>
           </form>
         </nav>
-          <SharkTank livingStudents={livingStudents} />
+          <SharkTank liveStudents={liveStudents} />
         <div className='graveyard'>
           <h1>Graveyard</h1>
         </div>
