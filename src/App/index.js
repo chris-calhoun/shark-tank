@@ -57,10 +57,8 @@ class App extends React.Component {
           </form>
         </nav>
         <SharkTank liveStudents={liveStudents} />
-        <div className='graveyard'>
-          <h1>Graveyard</h1>
-          <Graveyard deadStudents={deadStudents} />
-        </div>
+        <h2>Graveyard</h2>
+        <Graveyard deadStudents={deadStudents} />
       </div>
     );
   }

@@ -8,8 +8,8 @@ export default class Graveyard extends Component {
         <Gravestone key={student.id} student={student} />
     ));
     return (
-      <div className='Graveyard'>
-        <div className='Gravestones'>{renderStudentToDom()}</div>
+      <div className='graveyard'>
+        <div className='gravestones'>{renderStudentToDom()}</div>
       </div>
     );
   }
