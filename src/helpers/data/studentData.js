@@ -10,4 +10,14 @@ const livingStudents = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default livingStudents;
+const dearlyBeloved = () => new Promise((resolve, reject) => {
+  Axios.get(`${baseUrl}/students.json?orderBy="isDead"&equalTo=true`)
+    .then((response) => {
+      resolve(Object.values(response.data));
+    })
+    .catch((error) => reject(error));
+});
+
+const followTheLight = (studentId) => Axios.patch(`${baseUrl}/students/${studentId}.json`, { isDead: true });
+
+export { livingStudents, dearlyBeloved, followTheLight };

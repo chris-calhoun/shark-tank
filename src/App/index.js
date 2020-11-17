@@ -1,33 +1,52 @@
 import React from 'react';
 import './App.scss';
 import SharkTank from '../components/sharkTank';
-import getLiveStudents from '../helpers/data/studentData';
+import { livingStudents, dearlyBeloved, followTheLight } from '../helpers/data/studentData';
 
 class App extends React.Component {
   state = {
-    livingStudents: [],
+    liveStudents: [],
+    deadStudents: [],
   };
 
   componentDidMount() {
-    getLiveStudents().then((resp) => {
-      this.setState({
-        livingStudents: resp,
-      });
+    this.loadLivingStudents();
+    this.loadDeadStudents();
+  }
+
+  loadLivingStudents = () => livingStudents().then((resp) => {
+    this.setState({
+      liveStudents: resp,
     });
+  });
+
+  loadDeadStudents = () => dearlyBeloved().then((resp) => {
+    this.setState({
+      deadStudents: resp,
+    });
+  });
+
+  sharkAttack = () => {
+    if (this.state.liveStudents.length) {
+      const unluckyStudent = this.state.liveStudents[Math.floor(Math.random() * this.state.liveStudents.length)];
+      followTheLight(unluckyStudent.id);
+      this.loadLivingStudents();
+      this.loadDeadStudents();
+    }
   }
 
   render() {
-    const { livingStudents } = this.state;
+    const { liveStudents } = this.state;
     return (
       <div className='App'>
         <nav className='navbar navbar-light navbar-center bg-dark'>
           <form className='form-inline'>
-            <button className='btn btn-danger' type='button'>
+            <button className='btn btn-danger' onClick={this.sharkAttack} type='button'>
               Shark Attack
             </button>
           </form>
         </nav>
-          <SharkTank livingStudents={livingStudents} />
+          <SharkTank liveStudents={liveStudents} />
         <div className='graveyard'>
           <h1>Graveyard</h1>
         </div>
