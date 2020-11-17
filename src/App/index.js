@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import SharkTank from '../components/sharkTank';
-import { livingStudents, dearlyBeloved } from '../helpers/data/studentData';
+import { livingStudents, dearlyBeloved, followTheLight } from '../helpers/data/studentData';
 
 class App extends React.Component {
   state = {
@@ -29,7 +29,9 @@ class App extends React.Component {
   sharkAttack = () => {
     if (this.state.liveStudents.length) {
       const unluckyStudent = this.state.liveStudents[Math.floor(Math.random() * this.state.liveStudents.length)];
-      console.warn(unluckyStudent);
+      followTheLight(unluckyStudent.id);
+      this.loadLivingStudents();
+      this.loadDeadStudents();
     }
   }
 
